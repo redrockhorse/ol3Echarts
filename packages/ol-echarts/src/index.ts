@@ -2,7 +2,7 @@ import { Map, Object as obj, VERSION } from 'ol';
 import { ProjectionLike, transform } from 'ol/proj';
 import Event from 'ol/events/Event';
 import { Coordinate } from 'ol/coordinate';
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 
 import {
   isObject, merge,
