@@ -1,7 +1,7 @@
 /*!
  * author: sakitam-fdd <smilefdd@gmail.com> 
- * ol-echarts v2.0.4
- * build-time: 2021-12-13 15:30
+ * ol-echarts-lwzx v2.0.6
+ * build-time: 2021-12-13 16:44
  * LICENSE: MIT
  * (c) 2017-2021 https://sakitam-fdd.github.io/ol3Echarts
  */

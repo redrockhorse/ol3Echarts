@@ -1,13 +1,13 @@
 /*!
  * author: sakitam-fdd <smilefdd@gmail.com> 
- * ol-echarts v2.0.4
- * build-time: 2021-12-13 15:30
+ * ol-echarts-lwzx v2.0.6
+ * build-time: 2021-12-13 16:44
  * LICENSE: MIT
  * (c) 2017-2021 https://sakitam-fdd.github.io/ol3Echarts
  */
 import { VERSION, Map, Object as Object$1 } from 'ol';
 import { transform } from 'ol/proj';
-import * as echarts from 'echarts';
+import * as echarts__default, { init, registerCoordinateSystem, graphic, matrix } from 'echarts';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
