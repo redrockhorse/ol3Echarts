@@ -7,7 +7,7 @@
  */
 import { VERSION, Map, Object as Object$1 } from 'ol';
 import { transform } from 'ol/proj';
-import * as echarts__default, { init, registerCoordinateSystem, graphic, matrix } from 'echarts';
+import * as echarts from 'echarts';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -194,7 +194,7 @@ var decode = function (json) {
 };
 function formatGeoJSON (json) {
     var geoJson = decode(json);
-    var _features = echarts__default.util.map(echarts__default.util.filter(geoJson.features, function (featureObj) {
+    var _features = echarts.util.map(echarts.util.filter(geoJson.features, function (featureObj) {
         return featureObj.geometry && featureObj.properties && featureObj.geometry.coordinates.length > 0;
     }), function (featureObj) {
         var properties = featureObj.properties;
@@ -205,7 +205,7 @@ function formatGeoJSON (json) {
             geometries.push(coordinates[0]);
         }
         if (geo.type === 'MultiPolygon') {
-            echarts__default.util.each(coordinates, function (item) {
+            echarts.util.each(coordinates, function (item) {
                 if (item[0]) {
                     geometries.push(item[0]);
                 }
@@ -433,7 +433,7 @@ var EChartsLayer = (function (_super) {
     };
     EChartsLayer.prototype.render = function () {
         if (!this.$chart && this.$container) {
-            this.$chart = init(this.$container);
+            this.$chart = echarts.init(this.$container);
             if (this._chartOptions) {
                 this.registerMap();
                 this.$chart.setOption(this.convertData(this._chartOptions), false);
@@ -655,7 +655,7 @@ var EChartsLayer = (function (_super) {
     EChartsLayer.prototype.registerMap = function () {
         if (!this._isRegistered) {
             this.coordinateSystemId = "openlayers_" + uuid();
-            registerCoordinateSystem(this.coordinateSystemId, this.getCoordinateSystem(this._options));
+            echarts.registerCoordinateSystem(this.coordinateSystemId, this.getCoordinateSystem(this._options));
             this._isRegistered = true;
         }
         if (this._chartOptions) {
@@ -744,10 +744,10 @@ var EChartsLayer = (function (_super) {
         };
         RegisterCoordinateSystem.prototype.getViewRect = function () {
             var size = this.map.getSize();
-            return new graphic.BoundingRect(0, 0, size[0], size[1]);
+            return new echarts.graphic.BoundingRect(0, 0, size[0], size[1]);
         };
         RegisterCoordinateSystem.prototype.getRoamTransform = function () {
-            return matrix.create();
+            return echarts.matrix.create();
         };
         RegisterCoordinateSystem.prototype.prepareCustoms = function () {
             var rect = this.getViewRect();
